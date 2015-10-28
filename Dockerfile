@@ -9,6 +9,7 @@ ENV JAVA_PACKAGE server-jre
 
 # Download and unarchive Java
 RUN apt-get install -y curl && \ 
+  apt-get clean && \
   curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie"\
   http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-b${JAVA_VERSION_BUILD}/${JAVA_PACKAGE}-${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-linux-x64.tar.gz \
     | gunzip -c - | tar -xf - -C /opt &&\
